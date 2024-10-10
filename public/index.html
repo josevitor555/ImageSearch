@@ -14,11 +14,41 @@
 </head>
 <body>
 
-  <div class="parent">
-    <h1 class="text-3xl font-bold underline"> Hello, Wordl! </h1>
-    <button type="button"> Click Me! </button>
+  <h1 class="text-6xl font-extrabold leading-none tracking-tight text-gray-900 md:text-6xl lg:text-6xl dark:text-black mb-4 mt-20 text-center"> Image Search App </h1>
+  <p class="mb-6 text-lg font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400 text-center"> Search Images Here </p>
+  
+  <form class="max-w-md mx-auto mb-20">   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only"> Search Image </label>
+    <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+      </div>
+      <input type="search" id="default-search" class="block w-full p-4 ps-10 text-2xl text-gray-900 border border-gray-300 rounded-lg bg-white" placeholder="Search Your Image..." required />
+      <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2">Search</button>
+    </div>
+  </form>
+
+  <div class="search-results">
+    <div class="search-result">
+      <img src="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image Not Found">
+      <a class="font-medium text-black-600 dark:text-black-500 hover:underline text-2xl" href="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" target="_blank"> Mulher em Um Vasto Campo de Flores Amarelas </a>
+    </div>
+    <div class="search-result">
+      <img src="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image Not Found">
+      <a class="font-medium text-black-600 dark:text-black-500 hover:underline text-2xl" href="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" target="_blank"> Mulher em Um Vasto Campo de Flores Amarelas </a>
+    </div>
+    <div class="search-result">
+      <img src="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image Not Found">
+      <a class="font-medium text-black-600 dark:text-black-500 hover:underline text-2xl" href="https://images.pexels.com/photos/16465970/pexels-photo-16465970/free-photo-of-uma-mulher-posando-em-um-vasto-campo-de-flores-amarelas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" target="_blank"> Mulher em Um Vasto Campo de Flores Amarelas </a>
+    </div>
   </div>
 
+  <div class="flex justify-center mb-4">  <!-- Centralizando o botão -->
+    <button type="button" class="text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-600 font-medium rounded-lg text-4xl px-5 py-2.5 me-2 mb-2 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none dark:focus:ring-gray-500" id="show-more-button"> Show More </button>
+  </div>
+  
   <script type="module" src="./js/main.js"></script>
 
   <!-- By Webpack -->
