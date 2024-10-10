@@ -1,1 +1,5 @@
-console.log('Hello, World!');
+import $ from 'jquery';
+
+$('button').on('click', function() {
+  alert("Botão clicado pelo Jquery!");
+});

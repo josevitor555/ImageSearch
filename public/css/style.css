@@ -7,10 +7,23 @@
   font-family: "Roboto", sans-serif;
 }
 
+.parent {
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.parent button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #1d1d1d;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fafafa;
 }
