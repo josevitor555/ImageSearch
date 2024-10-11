@@ -29,7 +29,10 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "http-proxy-middleware": "^3.0.3",
     "jquery": "^3.7.1",
-    "nodemon": "^3.1.7"
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.7",
+    "unsplash-js": "^7.0.19"
   }
 }

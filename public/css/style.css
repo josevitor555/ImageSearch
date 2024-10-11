@@ -8,8 +8,20 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  width: 10px;
+  height: 10px;
 }
+
+::-webkit-scrollbar-thumb {
+  background: #1d1d1d;
+  border: 0px none #1d1d1d;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 
 h1, p {
   text-align: center;
@@ -31,11 +43,12 @@ h1, p {
   height: 100%;
   border-radius: 6px;
   overflow: hidden;
+  background: #fafafa;
 }
 
 .search-result img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
   transition: opacity .2s ease-in-out;
   cursor: pointer;
@@ -53,6 +66,7 @@ h1, p {
 
 #show-more-button {
   margin: 30px auto;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,6 +87,5 @@ h1, p {
 
 body {
   height: auto;
-  background: #fafafa;
   line-height: 1.6;
 }
