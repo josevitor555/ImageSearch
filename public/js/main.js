@@ -16,15 +16,26 @@ showMore.addEventListener('click', () => {
 });
 
 async function searchImages() {
-  const query = inputElement.value;
-  const url = `/api/search?query=${query}&page=${page}`;
+  const inputData = inputElement.value;
+  const url = `/api/search?query=${inputData}&page=${page}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
 
+    const results = data.results;
+
     if (page === 1) {
       searchResults.innerHTML = '';
+      showMore.style.display = 'none';
+    }
+
+    if (results.length === 0) {
+      const noResultsMessage = document.createElement('p');
+      noResultsMessage.textContent = `Nenhuma imagem encontrada para '${inputData}'`;
+      noResultsMessage.classList.add('no-results-message')
+      searchResults.appendChild(noResultsMessage);
+      return;
     }
 
     data.results.forEach((result) => {
@@ -46,7 +57,9 @@ async function searchImages() {
     });
 
     page += 1;
-    showMore.style.display = 'block';
+    if (page > 1) {
+      showMore.style.display = 'block';
+    }
   } catch (error) {
     console.error('Erro ao buscar imagens:', error);
   }
