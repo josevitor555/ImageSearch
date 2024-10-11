@@ -1,5 +1,5 @@
 ### ImageSearch is a simple image search web app that uses the Unsplash API. The project was developed using HTML, CSS, JavaScript, Webpack for packaging, TailwindCSS and Express Node.js.
-## Technologies Used:
+## Technologies Used
 
 - [x] HTML
 - [x] CSS
@@ -12,7 +12,7 @@
 - [x] Image search using the Unsplash API
 - [x] Display of found images Integration with Unsplash API to get images
 
-### Note: 
+### Note
 > [!NOTE]  
 > If you found the project interesting, don't hesitate to give a Star :D
 ### Extra tip
