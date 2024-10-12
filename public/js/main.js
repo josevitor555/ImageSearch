@@ -52,9 +52,12 @@ async function searchImages() {
       imageLink.textContent = result.alt_description;
 
       const downloadIcon = document.createElement('a');
-      downloadIcon.href = result.links.donwload;
-      downloadIcon.classList.add('download-icon');
-      downloadIcon.innerHTML = `<i class='bx bx-vertical-bottom'></i>`;
+      downloadIcon.href = result.urls.full;
+      downloadIcon.classList.add('download-img');
+      // downloadIcon.innerHTML = `<i class='bx bx-vertical-bottom'></i>`;
+      downloadIcon.textContent = 'High Quality';
+      downloadIcon.setAttribute('download', 'image.jpg');
+      downloadIcon.target = '_blank';
 
       imageWrapper.appendChild(image);
       imageWrapper.appendChild(imageLink);

@@ -62,7 +62,7 @@ h1, p {
 
 .search-result img {
   width: 100%;
-  height: auto;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
 }
@@ -74,24 +74,33 @@ h1, p {
   font-weight: 300;
 }
 
-.download-icon {
+.download-img,
+.download-image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  border-radius: 10px;
-  width: 40px;
+  border-radius: 6px;
+  width: 200px;
   height: 40px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fafafa;
+  font-size: 1.6rem;
+  font-weight: 300;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.search-result:hover .download-icon {
+.search-result:hover .download-img,
+.search-result:hover .download-image {
   opacity: 1;
+  color: #fafafa;
 }
 
 .download-icon i {
