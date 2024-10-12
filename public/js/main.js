@@ -51,8 +51,14 @@ async function searchImages() {
       imageLink.target = '_blank';
       imageLink.textContent = result.alt_description;
 
+      const downloadIcon = document.createElement('a');
+      downloadIcon.href = result.links.donwload;
+      downloadIcon.classList.add('download-icon');
+      downloadIcon.innerHTML = `<i class='bx bx-vertical-bottom'></i>`;
+
       imageWrapper.appendChild(image);
       imageWrapper.appendChild(imageLink);
+      imageWrapper.appendChild(downloadIcon);
       searchResults.appendChild(imageWrapper);
     });
 

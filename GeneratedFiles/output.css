@@ -640,18 +640,6 @@ video {
   height: 1rem;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-14 {
-  height: 3.5rem;
-}
-
 .w-4 {
   width: 1rem;
 }
@@ -699,10 +687,6 @@ video {
   padding: 1rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -731,10 +715,6 @@ video {
   padding-inline-start: 0.75rem;
 }
 
-.ps-12 {
-  padding-inline-start: 3rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -742,11 +722,6 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-6xl {

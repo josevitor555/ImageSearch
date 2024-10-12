@@ -27,6 +27,7 @@ h1, p {
 }
 
 .search-results {
+  position: relative;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -36,12 +37,18 @@ h1, p {
 }
 
 .search-result {
+  position: relative;
   margin-bottom: 60px;
   width: 30%;
   height: 100%;
   border-radius: 6px;
   overflow: hidden;
   background: #fafafa;
+  transition: transform 0.3s ease;
+}
+
+.search-result:hover {
+  transform: translateY(-2px);
 }
 
 .search-result a {
@@ -57,12 +64,7 @@ h1, p {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: opacity .2s ease-in-out;
   cursor: pointer;
-}
-
-.search-result:hover img {
-  opacity: .8;
 }
 
 .search-result a {
@@ -70,6 +72,32 @@ h1, p {
   padding: 10px;
   text-transform: capitalize;
   font-weight: 300;
+}
+
+.download-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.search-result:hover .download-icon {
+  opacity: 1;
+}
+
+.download-icon i {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fafafa;
 }
 
 .no-results-message {
@@ -106,6 +134,14 @@ h1, p {
   opacity: .8;
 }
 
+input[type="search"]:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 768px) {
   .search-results {
     padding: 20px;
@@ -125,4 +161,5 @@ h1, p {
 body {
   height: auto;
   line-height: 1.6;
+  background: #efeff3;
 }
