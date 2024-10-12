@@ -39,6 +39,19 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
+app.get('/api/random-images', async (req, res) => {
+  const count = req.query.count || 6;
+
+  try {
+    const result = await unsplash.photos.getRandom({ count: parseInt(count) });
+
+    res.json(result.response);
+  } catch (error) {
+    console.error('Erro ao buscar imagens aleatórias:', error);
+    res.status(500).json({ error: 'Erro ao buscar imagens aleatórias' });
+  }
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
