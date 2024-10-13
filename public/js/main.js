@@ -52,16 +52,34 @@ async function searchImages() {
 
 async function fetchRandomImages() {
   try {
-    const response = await fetch('/api/random-images?count=9');
+    const response = await fetch('/api/random-images');
 
     if (!response.ok) {
       throw new Error('Erro ao buscar as imagens aleatórias');
     }
 
-    const data = await response.json();
-    searchResults.innerHTML = '';
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Resposta não é JSON');
+    }
 
-    data.forEach(createImageElement);
+    const data = await response.json();
+    data.forEach((result) => {
+      const resultHTML = `
+      <div class="search-result animate__animated animate__fadeIn">
+        <img src="${result.urls.small}" alt="${result.alt_description || 'Image Not Found'}">
+        <a href="${result.links.html}" target="_blank">
+          ${result.alt_description || 'No description available'}
+        </a>
+        <div class="download-image">
+          <a href="${result.urls.full}" class="download-img" download="image.jpg">
+            <i class="text-white fa-solid fa-share-from-square"></i>
+          </a>
+        </div>
+      </div>
+    `;
+    searchResults.innerHTML += resultHTML;
+    });
   } catch (error) {
     console.error('Erro ao buscar as imagens:', error);
   }
@@ -84,7 +102,7 @@ function createImageElement(result) {
   downloadIcon.href = result.urls.full;
   downloadIcon.classList.add('download-img');
   downloadIcon.download = 'image.jpg';
-  downloadIcon.textContent = 'High Quality';
+  downloadIcon.innerHTML = '<i class="fa-solid fa-share-from-square"></i>';
   downloadIcon.target = '_blank';
 
   imageWrapper.appendChild(image);

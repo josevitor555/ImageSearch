@@ -43,8 +43,10 @@ app.get('/api/random-images', async (req, res) => {
   const count = req.query.count || 6;
 
   try {
-    const result = await unsplash.photos.getRandom({ count: parseInt(count) });
-
+    const result = await unsplash.photos.getRandom({
+      count: parseInt(count)
+    });
+    
     res.json(result.response);
   } catch (error) {
     console.error('Erro ao buscar imagens aleatórias:', error);
