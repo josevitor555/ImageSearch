@@ -42,7 +42,28 @@ async function searchImages() {
       return;
     }
 
-    data.results.forEach(createImageElement);
+    data.results.forEach((result) => {
+      const resultHTML = `
+      <div class="search-result animate__animated animate__fadeIn">
+          <div class="perfil-user flex items-center mb-4">
+            <img src="${result.user.profile_image.large}" alt="${result.user.name}" class="rounded-full w-12 h-12 object-cover" />
+            <div>
+              <h6 class="text-slate-800 font-semibold">
+                <a href="${result.user.links.html}" target="_blank">${result.user.name}</a>
+              </h6>
+              <p class="bio-user text-slate-600 text-2xl">
+                ${result.user.bio || 'Fotógrafo'}
+              </p>
+            </div>
+          </div>
+          <img src="${result.urls.small}" alt="${result.alt_description || 'Image Not Found'}" class="w-full h-64 object-cover">
+          <a href="${result.links.html}" target="_blank" class="block mt-2">
+            ${result.alt_description || 'No description available'}
+          </a>
+        </div>
+      `;
+      searchResults.innerHTML += resultHTML;
+    });
     page += 1;
     showMoreButton.style.display = 'block';
   } catch (error) {
@@ -82,11 +103,6 @@ async function fetchRandomImages() {
           <a href="${result.links.html}" target="_blank" class="block mt-2">
             ${result.alt_description || 'No description available'}
           </a>
-          <div class="download-image mt-2">
-            <a href="${result.urls.full}" class="download-img" download="image.jpg">
-              <i class="text-white fa-solid fa-share-from-square"></i>
-            </a>
-          </div>
         </div>
       `;
       searchResults.innerHTML += resultHTML;
