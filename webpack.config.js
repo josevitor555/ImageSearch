@@ -5,10 +5,10 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const entreFiles = ['./public/js/main.js'];
+const entryFiles = ['./public/js/main.js'];
 
 export default {
-  entry: entreFiles,
+  entry: entryFiles,
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'GeneratedFiles')

@@ -112,30 +112,4 @@ async function fetchRandomImages() {
   }
 }
 
-function createImageElement(result) {
-  const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('search-result');
-
-  const image = document.createElement('img');
-  image.src = result.urls.small;
-  image.alt = result.alt_description || 'Image Not Found';
-
-  const imageLink = document.createElement('a');
-  imageLink.href = result.links.html;
-  imageLink.target = '_blank';
-  imageLink.textContent = result.alt_description || 'No description available';
-
-  const downloadIcon = document.createElement('a');
-  downloadIcon.href = result.urls.full;
-  downloadIcon.classList.add('download-img');
-  downloadIcon.download = 'image.jpg';
-  downloadIcon.innerHTML = '<i class="fa-solid fa-share-from-square"></i>';
-  downloadIcon.target = '_blank';
-
-  imageWrapper.appendChild(image);
-  imageWrapper.appendChild(imageLink);
-  imageWrapper.appendChild(downloadIcon);
-  searchResults.appendChild(imageWrapper);
-}
-
 window.addEventListener('DOMContentLoaded', fetchRandomImages);
