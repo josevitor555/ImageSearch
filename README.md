@@ -14,7 +14,7 @@
 
 ### Note
 > [!NOTE]  
-> If you found the project interesting, don't hesitate to give a Star :D
+> The project will be available until October 31, 2024
 ### Extra tip
 > [!TIP]
 > Official website https://unsplash.com/ and create account to get your API Key
