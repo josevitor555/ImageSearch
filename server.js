@@ -15,12 +15,13 @@ const __dirname = path.dirname(__filename);
 
 const unsplash = createApi({
   accessKey: process.env.UNSPLASH_ACCESS_KEY,
-  fetch: nodeFetch, // Passa o fetch para o Unsplash SDK funcionar no Node.js
+  fetch: nodeFetch,
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/GeneratedFiles', express.static(path.join(__dirname, 'GeneratedFiles')));
 
+// Endpoint para pesquisar e exibir imagens
 app.get('/api/search', async (req, res) => {
   const query = req.query.query || 'nature';
   const page = req.query.page || 1;
@@ -39,6 +40,7 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
+// Endpoint para randomizar imagens aleatórias
 app.get('/api/random-images', async (req, res) => {
   const count = req.query.count || 6;
 
