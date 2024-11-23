@@ -12,9 +12,7 @@
 - [x] Image search using the Unsplash API
 - [x] Display of found images Integration with Unsplash API to get images
 
-### Note
-> [!NOTE]  
-> The project will be available until October 31, 2024
+
 ### Extra tip
 > [!TIP]
 > Official website https://unsplash.com/ and create account to get your API Key
