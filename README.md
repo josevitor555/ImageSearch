@@ -12,6 +12,11 @@
 - [x] Image search using the Unsplash API
 - [x] Display of found images Integration with Unsplash API to get images
 
+## Install dependencies 
+
+```
+npm install
+```
 
 ### Extra tip
 > [!TIP]
