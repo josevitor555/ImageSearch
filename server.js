@@ -56,6 +56,24 @@ app.get('/api/random-images', async (req, res) => {
   }
 });
 
+// Endpoint para buscar informações do usuário
+app.get('/api/user/:username', async (req, res) => {
+  const username = req.params.username;
+
+  try {
+    const userResponse = await unsplash.users.get({ username });
+    const photosResponse = await unsplash.users.getPhotos({ username });
+
+    res.json({
+      user: userResponse.response,
+      photos: photosResponse.response,
+    });
+  } catch (error) {
+    console.error('Erro ao buscar informações do usuário:', error);
+    res.status(500).json({ error: 'Erro ao buscar informações do usuário' });
+  }
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

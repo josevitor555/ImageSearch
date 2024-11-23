@@ -21,7 +21,7 @@
 <body>
 
   <h1 class="text-6xl font-bold leading-none tracking-tight text-gray-900 md:text-6xl lg:text-6xl dark:text-black mb-8 mt-20 text-center"> LibraryImages </h1>
-  <p class="mb-6 text-lg font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400 text-center"> Desenvolvido por josevitor555 (Username do Github) </p>
+  <p class="mb-6 text-lg font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400 text-center"> Desenvolvido por josevitor555 (Meu nome de usuário do Github) </p>
   
   <form class="max-w-md mx-auto mb-20">
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only"> Search Image </label>
@@ -31,7 +31,7 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
         </svg>
       </div>
-      <input type="search" id="default-search" class="block w-full p-4 ps-10 text-2xl text-gray-900 border border-gray-300 rounded-lg bg-white" placeholder="Search Your Image..." required />
+      <input type="search" id="default-search" class="block w-full p-4 ps-10 text-2xl text-gray-900 border border-gray-300 rounded-lg bg-white" placeholder="Search Your Image or User" required />
       <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2"> Search </button>
     </div>
   </form>
@@ -42,12 +42,32 @@
     <button type="button" class="text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-600 font-medium rounded-lg text-2xl px-5 py-2.5 me-2 mb-2 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none dark:focus:ring-gray-500" id="show-more-button"> Show More </button>
   </div>
 
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <i class="close-modal fa-solid fa-x"></i>
+      <h2 class="text-4xl font-semibold"> Bem vindo(a) ao ImageSearch! </h2>
+      <p class="text-3xl font-light mt-4"> Este é um projeto utilizando uma API do unsplash para pesquisa e exibição de imagens! </p>
+
+      <div class="flex item-center flex-col">
+        <img src="./images/qr_code.png" alt="Quero cafeeeeeeeeeee!">
+        <p class="text-3xl"> Apoia-me comprando um café! 💛</p>
+      </div>
+
+      <!-- <button type="button" class="btn-modal text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-2xl mt-4 px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"> Fechar </button> -->
+       <div class="copy-link-fromQRCode">
+        <a href="https://buymeacoffee.com/josevitor555" target="_blank"> <span class="text-2xl font-semibold hover:underline"> https://buymeacoffee.com/josevitor555 </span> </a>
+       </div>
+    </div>
+  </div>
+
   <div class="end-text">
     <h2> Copyright 2024. All Right Reserved. </h2>
-    <p> Image Search App 2024 </p>
+    <p> LibraryImages App 2024 </p>
   </div>
   
   <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/openModal.js"></script>
+  <script type="module" src="./js/hideModal.js"></script>
 
   <!-- By Webpack -->
   <script src="../GeneratedFiles/bundle.js"></script>

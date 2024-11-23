@@ -8,9 +8,18 @@ let isSearching = false;
 
 formElement.addEventListener('submit', (event) => {
   event.preventDefault();
-  page = 1;
-  isSearching = true;
-  searchImages();
+  const inputData = inputElement.value.trim();
+  
+  if (inputData.startsWith('@')) {
+    const username = inputData.slice(1);
+    fetchUserData(username);
+    showMoreButton.style.display = 'none'; // Oculta o botão "Show More"
+  } else {
+    page = 1;
+    isSearching = true;
+    searchImages();
+    showMoreButton.style.display = 'block'; // Mostra o botão "Show More" para imagens
+  }
 });
 
 showMoreButton.addEventListener('click', () => {
@@ -51,7 +60,7 @@ async function searchImages() {
               <h6 class="text-slate-800 font-semibold">
                 <a href="${result.user.links.html}" target="_blank">${result.user.name}</a>
               </h6>
-              <p class="bio-user text-slate-600 text-2xl">
+              <p class="bio-user text-gray-800 text-2xl">
                 ${result.user.bio || 'Fotógrafo'}
               </p>
             </div>
@@ -94,7 +103,7 @@ async function fetchRandomImages() {
               <h6 class="text-slate-800 font-semibold">
                 <a href="${result.user.links.html}" target="_blank">${result.user.name}</a>
               </h6>
-              <p class="bio-user text-slate-600 text-2xl">
+              <p class="bio-user text-gray-800 text-2xl">
                 ${result.user.bio || 'Fotógrafo'}
               </p>
             </div>
@@ -113,3 +122,54 @@ async function fetchRandomImages() {
 }
 
 window.addEventListener('DOMContentLoaded', fetchRandomImages);
+
+formElement.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const username = inputElement.value;
+  await fetchUserData(username);
+});
+
+async function fetchUserData(username) {
+  try {
+    const response = await fetch(`/api/user/${username}`);
+    const data = await response.json();
+
+    // Exibir informações do usuário e fotos
+    displayUserData(data.user, data.photos);
+  } catch (error) {
+    console.error('Erro ao buscar dados do usuário:', error);
+  }
+}
+
+function displayUserData(user) {
+  const userHTML = `
+    <div class="p-5 border rounded text-center text-gray-500 max-w-sm">
+      <img src="${user.profile_image.large}" alt="${user.name}" class="w-32 h-32 rounded-full mx-auto">
+      <div class="text-2xl mt-5">
+        <a href="${user.profile_image.large}" class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">
+          ${user.name}
+        </a>
+        <p class="mt-2 text-1xl text-gray-800">
+          ${user.bio || 'Sem bio disponível'}
+        </p>
+      </div>
+      <div class="mt-4 flex justify-center space-x-4">
+        ${user.social.instagram_username ? `
+          <a href="https://instagram.com/${user.social.instagram_username}" target="_blank" class="text-3xl text-gray-800">
+            <i class="fa-brands fa-square-instagram"></i>
+          </a>` : ''}
+        ${user.social.twitter_username ? `
+          <a href="https://twitter.com/${user.social.twitter_username}" target="_blank" class="text-3xl text-gray-800">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>` : ''}
+        ${user.social.portfolio_url ? `
+          <a href="${user.social.portfolio_url}" target="_blank" class="text-3xl text-gray-800">
+            <i class="fa-solid fa-briefcase"></i>
+          </a>` : ''}
+      </div>
+    </div>
+  `;
+
+  searchResults.innerHTML = userHTML;
+  showMoreButton.style.display = 'none';
+}
