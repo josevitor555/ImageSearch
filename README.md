@@ -10,6 +10,7 @@
 
 ## Main Features
 - [x] Image search using the Unsplash API
+- [x] Search users
 - [x] Display of found images Integration with Unsplash API to get images
 
 ## Install dependencies 
